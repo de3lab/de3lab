@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>de3Lab - Onchain Solutions, Trading Systems & Exchange Development</title>
+    <meta name="title" content="de3Lab - Onchain Solutions, Trading Systems & Exchange Development">
+    <meta name="description"
+          content="Professional blockchain analytics, ETL pipelines, custom indexers, algorithmic trading, market making, and DEX/CEX exchange development. Enterprise-grade onchain solutions.">
+    <meta name="keywords"
+          content="blockchain analytics, ETL pipelines, blockchain indexers, algorithmic trading, market making, DEX development, CEX development, onchain solutions, trading systems, exchange development, market replay, backtesting">
+    <meta name="author" content="de3Lab">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://de3lab.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://de3lab.com/">
+    <meta property="og:title" content="de3Lab - Onchain Solutions, Trading Systems & Exchange Development">
+    <meta property="og:description"
+          content="Professional blockchain analytics, algorithmic trading, market making, and exchange development. Enterprise-grade onchain solutions for modern markets.">
+    <meta property="og:image" content="https://de3lab.com/og-image.png">
+    <meta property="og:site_name" content="de3Lab">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://de3lab.com/">
+    <meta property="twitter:title" content="de3Lab - Onchain Solutions, Trading Systems & Exchange Development">
+    <meta property="twitter:description"
+          content="Professional blockchain analytics, algorithmic trading, market making, and exchange development. Enterprise-grade onchain solutions for modern markets.">
+    <meta property="twitter:image" content="https://de3lab.com/og-image.png">
+
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+
+    <!-- Favicon & Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/icon-192.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --dark-bg: #0a0e17;
+            --darker-bg: #050810;
+            --card-bg: #131822;
+            --card-hover: #1a1f2e;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a8b8;
+            --border-color: #1e2430;
+            --accent-blue: #667eea;
+            --accent-purple: #764ba2;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            font-weight: 300;
+            line-height: 1.8;
+            letter-spacing: -0.01em;
+        }
+
+        .hero-gradient {
+            background: var(--primary-gradient);
+            position: relative;
+            overflow: hidden;
+            padding: 8rem 1.5rem;
+        }
+
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 200;
+            letter-spacing: -0.04em;
+            text-shadow: 0 4px 40px rgba(0, 0, 0, 0.3);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            font-weight: 200;
+            opacity: 0.95;
+            letter-spacing: 0.02em;
+        }
+
+        .section {
+            background: var(--dark-bg);
+            padding: 6rem 1.5rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
+            border-color: rgba(102, 126, 234, 0.4);
+            background: var(--card-hover);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card h3 {
+            color: var(--text-primary);
+            font-weight: 400;
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.2rem;
+        }
+
+        .service-card p {
+            color: var(--text-secondary) !important;
+            font-weight: 300;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 32px rgba(102, 126, 234, 0.6);
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 2rem;
+        }
+
+        .feature-list li {
+            padding: 0.7rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-secondary) !important;
+            font-weight: 300;
+            font-size: 1rem;
+        }
+
+        .feature-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-weight: 300;
+            font-size: 1.2rem;
+        }
+
+        .cta-section {
+            background: var(--primary-gradient);
+            border-radius: 24px;
+            padding: 5rem 3rem;
+            margin: 5rem 0;
+            text-align: center;
+            color: white;
+            box-shadow: 0 16px 48px rgba(102, 126, 234, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .cta-section h2, .cta-section p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-weight: 300;
+            font-size: 2.8rem;
+            letter-spacing: -0.03em;
+        }
+
+        .cta-section p {
+            font-weight: 200;
+            font-size: 1.2rem;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 12px;
+            font-weight: 400;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 0.02em;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+            color: #667eea;
+        }
+
+        .section-dark {
+            background: var(--darker-bg);
+            padding: 6rem 1.5rem;
+        }
+
+        .expertise-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem 1.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+        }
+
+        .expertise-box:hover {
+            transform: translateY(-8px);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 12px 32px rgba(102, 126, 234, 0.25);
+            background: var(--card-hover);
+        }
+
+        .expertise-box p {
+            color: var(--text-primary);
+            font-weight: 300;
+            font-size: 1.05rem;
+            letter-spacing: 0.01em;
+        }
+
+        .expertise-box i {
+            transition: all 0.4s ease;
+        }
+
+        .expertise-box:hover i {
+            transform: scale(1.2);
+        }
+
+        .footer-custom {
+            background: var(--darker-bg);
+            color: var(--text-secondary);
+            padding: 3rem 0;
+            margin-top: 6rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-custom p {
+            font-weight: 300;
+            font-size: 0.95rem;
+        }
+
+        .title.is-2 {
+            color: var(--text-primary);
+            font-weight: 300;
+            font-size: 3rem;
+            letter-spacing: -0.03em;
+        }
+
+        .subtitle.is-5 {
+            color: var(--text-secondary);
+            font-weight: 300;
+            font-size: 1.15rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            .hero-title {
+                font-size: 1rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.15rem;
+            }
+
+            .service-card {
+                margin-bottom: 2rem;
+            }
+
+            .title.is-2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body itemscope itemtype="https://schema.org/WebPage">
+<!-- Services Section -->
+<section class="section" id="services">
+    <div class="container">
+        <div class="has-text-centered mb-6">
+            <h1 class="title hero-title has-text-white" itemprop="headline">
+                de3Lab
+            </h1>
+            <p class="hero-subtitle is-5">Building the infrastructure for next-generation trading and blockchain analytics</p>
+        </div>
+
+        <div class="columns is-multiline">
+            <!-- Onchain Solutions -->
+            <div class="column is-one-third">
+                <article class="service-card" itemscope itemtype="https://schema.org/Service">
+                    <div class="service-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3 class="title is-4" itemprop="name">Onchain Solutions</h3>
+                    <p class="has-text-grey mb-4" itemprop="description">
+                        Enterprise-grade blockchain data infrastructure for real-time analytics and deep insights.
+                    </p>
+                    <ul class="feature-list has-text-grey-dark">
+                        <li>Blockchain Analytics</li>
+                        <li>ETL Pipelines</li>
+                        <li>Custom Indexers</li>
+                        <li>Real-time Data Processing</li>
+                    </ul>
+                </article>
+            </div>
+
+            <!-- Trading Solutions -->
+            <div class="column is-one-third">
+                <article class="service-card" itemscope itemtype="https://schema.org/Service">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="title is-4" itemprop="name">Trading Solutions</h3>
+                    <p class="has-text-grey mb-4" itemprop="description">
+                        Professional algorithmic trading systems with advanced strategies and risk management.
+                    </p>
+                    <ul class="feature-list has-text-grey-dark">
+                        <li>Algorithmic Trading</li>
+                        <li>Market Making</li>
+                        <li>Market Replay & Backtesting</li>
+                        <li>Strategy Optimization</li>
+                    </ul>
+                </article>
+            </div>
+
+            <!-- Exchange Development -->
+            <div class="column is-one-third">
+                <article class="service-card" itemscope itemtype="https://schema.org/Service">
+                    <div class="service-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3 class="title is-4" itemprop="name">Exchange Development</h3>
+                    <p class="has-text-grey mb-4" itemprop="description">
+                        Full-stack exchange solutions from architecture to deployment for DEX and CEX platforms.
+                    </p>
+                    <ul class="feature-list has-text-grey-dark">
+                        <li>DEX Development</li>
+                        <li>CEX Infrastructure</li>
+                        <li>Matching Engine Design</li>
+                        <li>Liquidity Solutions</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Technology Stack -->
+<section class="section section-dark">
+    <div class="container">
+        <div class="has-text-centered mb-6">
+            <h2 class="title is-2">Our Expertise</h2>
+            <p class="subtitle is-5">Built with cutting-edge technologies</p>
+        </div>
+
+        <div class="columns is-centered">
+            <div class="column is-10">
+                <div class="columns is-multiline has-text-centered">
+                    <div class="column is-4">
+                        <div class="expertise-box">
+                            <i class="fas fa-database fa-2x mb-3" style="color: #667eea;"></i>
+                            <p class="has-text-weight-semibold">Blockchain Indexing</p>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="expertise-box">
+                            <i class="fas fa-robot fa-2x mb-3" style="color: #667eea;"></i>
+                            <p class="has-text-weight-semibold">Algorithmic Trading</p>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="expertise-box">
+                            <i class="fas fa-layer-group fa-2x mb-3" style="color: #667eea;"></i>
+                            <p class="has-text-weight-semibold">ETL Systems</p>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="expertise-box">
+                            <i class="fas fa-bolt fa-2x mb-3" style="color: #667eea;"></i>
+                            <p class="has-text-weight-semibold">Quant Performance</p>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="expertise-box">
+                            <i class="fas fa-cogs fa-2x mb-3" style="color: #667eea;"></i>
+                            <p class="has-text-weight-semibold">Distributed Systems</p>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="expertise-box">
+                            <i class="fas fa-shield-alt fa-2x mb-3" style="color: #667eea;"></i>
+                            <p class="has-text-weight-semibold">Security First</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer footer-custom">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-half">
+            </div>
+            <div class="column is-half has-text-right-tablet">
+                <p class="mb-3">
+                </p>
+                <p class="has-text-grey">
+                    © 2026 de3Lab. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+</script>
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "de3Lab",
+        "url": "https://de3lab.com",
+        "logo": "https://de3lab.com/logo.png",
+        "description": "Professional blockchain analytics, algorithmic trading, market making, and exchange development. Enterprise-grade onchain solutions for modern markets.",
+        "email": "contact@de3lab.com",
+        "sameAs": [],
+        "foundingDate": "2024",
+        "knowsAbout": [
+            "Blockchain Analytics",
+            "ETL Pipelines",
+            "Blockchain Indexing",
+            "Algorithmic Trading",
+            "Market Making",
+            "DEX Development",
+            "CEX Development",
+            "Trading Systems",
+            "Market Replay",
+            "Backtesting"
+        ],
+        "areaServed": "Worldwide",
+        "serviceType": [
+            "Blockchain Analytics",
+            "Trading Solutions",
+            "Exchange Development"
+        ]
+    }
+</script>
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "de3Lab",
+        "url": "https://de3lab.com",
+        "description": "Onchain Solutions, Trading Systems, and Exchange Development",
+        "publisher": {
+            "@type": "Organization",
+            "name": "de3Lab"
+        }
+    }
+</script>
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Blockchain & Trading Solutions",
+        "provider": {
+            "@type": "Organization",
+            "name": "de3Lab",
+            "url": "https://de3lab.com"
+        },
+        "areaServed": "Worldwide",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "de3Lab Services",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Onchain Solutions",
+                        "description": "Blockchain Analytics, ETL Pipelines, Custom Indexers, Real-time Data Processing"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Trading Solutions",
+                        "description": "Algorithmic Trading, Market Making, Market Replay & Backtesting, Strategy Optimization"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Exchange Development",
+                        "description": "DEX Development, CEX Infrastructure, Matching Engine Design, Liquidity Solutions"
+                    }
+                }
+            ]
+        }
+    }
+</script>
+</body>
+</html>

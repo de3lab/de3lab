@@ -1,0 +1,5 @@
+# de3Lab robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://de3lab.com/sitemap.xml
